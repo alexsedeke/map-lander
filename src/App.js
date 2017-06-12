@@ -4,7 +4,7 @@ import {
     Route,
     Switch
 } from 'react-router-dom';
-import './App.css';
+import './css/App.css';
 import { Links } from './components/links';
 import { Home } from './components/home';
 import { Login } from './components/login';
@@ -22,15 +22,17 @@ class App extends Component {
         <Router>
             <div>
                 <Links />
-                <Switch>
-                    <Route exact path="/" component={Home}  />
-                    <SecuredRoute exact path="/test" component={Test} props={this.state} />
-                    <SecuredRoute exact path="/logout" component={Logout} />
-                    <UnsecuredRoute exact path="/login" component={Login} />
-                    <Route exact path="/shops" render={() => <h1>Shops</h1>} />
-                    <Route exact path="/maillist" render={() => <h1>Maillist</h1>}  />
-                    <Route render={() => <h1>Page not found</h1>} />
-                </Switch>
+                <main id="main">
+                    <Switch>
+                        <Route exact path="/" component={Home}  />
+                        <SecuredRoute exact path="/test" component={Test} props={this.state} />
+                        <SecuredRoute exact path="/logout" component={Logout} />
+                        <UnsecuredRoute exact path="/login" component={Login} />
+                        <Route exact path="/shops" render={() => <h1>Shops</h1>} />
+                        <Route exact path="/maillist" render={() => <h1>Maillist</h1>}  />
+                        <Route render={() => <h1>Page not found</h1>} />
+                    </Switch>
+                </main>
             </div>
         </Router>
     );
